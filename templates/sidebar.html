@@ -10,6 +10,10 @@
             />
         </g>
     </svg>
+    {% for service in user.services_set.all %}
+        {{ service.title }}
+    {% endfor %}
+
     <div class="text-center">
         <h3 class="title title--h3 sidebar__user-name">
             <span class="weight--500">{{ user.profile.user.first_name }}</span> {{ user.profile.user.last_name }}
