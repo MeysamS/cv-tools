@@ -1,26 +1,27 @@
 {% extends 'base.html' %} {% block content %} {% if user.profile %}
-<div class="pb-0 pb-sm-2">
-  <h1 class="title title--h1 title__separate">درباره من</h1>
-  <p>{{ user.profile.bio }}</p>
-</div>
-{% endif %} {% if services %}
-<div class="box-inner pb-0">
-  <h2 class="title title--h3">چه کاری انجام می دهم</h2>
-  <div class="row">
-    {% for service in services %}
-    <!-- Case Item -->
-    <div class="col-12 col-lg-6">
-      <div class="case-item box box__second">
-        {% if service.icons %}
-        <img class="case-item__icon" src="media/{{ service.icons }}" alt="" />
-        {% endif %}
-        <div>
-          <h3 class="title title--h5">{{ service.title }}</h3>
-          <p class="case-item__caption">{{ service.description }}</p>
-        </div>
-      </div>
+    <div class="pb-0 pb-sm-2">
+        <h1 class="title title--h1 title__separate">درباره من</h1>
+        <p>{{ user.profile.bio }}</p>
     </div>
-    {% endfor %}
-  </div>
-</div>
+{% endif %}
+    {% if user.services_set.all %}
+    <div class="box-inner pb-0">
+        <h2 class="title title--h3">چه کاری انجام می دهم</h2>
+        <div class="row">
+            {% for service in user.services_set.all %}
+                <!-- Case Item -->
+                <div class="col-12 col-lg-6">
+                    <div class="case-item box box__second">
+                        {% if service.icons %}
+                            <img class="case-item__icon" src="media/{{ service.icons }}" alt=""/>
+                        {% endif %}
+                        <div>
+                            <h3 class="title title--h5">{{ service.title }}</h3>
+                            <p class="case-item__caption">{{ service.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endif %} {% endblock content %}
