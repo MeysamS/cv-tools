@@ -1,0 +1,21 @@
+{% load static %}
+<div class="col-12 col-lg-6">
+  <h2 class="title title--h3">
+    <img
+      class="title-icon"
+      src="{% static 'assets/icons/icon-education.svg'%} "
+      alt=""
+    />
+    تحصیلات
+  </h2>
+  <div class="timeline">
+    <!-- Item -->
+    {% for item in educations %}
+    <article class="timeline__item">
+      <h5 class="title title--h5 timeline__title">{{item.title}}</h5>
+      <span class="timeline__period">{{item.date_of_date}}</span>
+      <p class="timeline__description">{{item.description}}</p>
+    </article>
+    {% endfor %}
+  </div>
+</div>

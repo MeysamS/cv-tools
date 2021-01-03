@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<div class="pb-3">
+  <h1 class="title title--h1 title__separate">رزومه</h1>
+</div>
+
+<div class="pb-0">
+  <div class="row">
+    {% include 'cv/educations.html' with educations=educations %} {% include
+    'cv/experience.html' with experiences=experiences %}
+  </div>
+</div>
+
+<div class="box-inner box-inner--rounded">
+  <div class="row">
+    {% include 'cv/design_skills.html' with design_skills=design_skills %} {%
+    include 'cv/coding_skills.html' with coding_skills=coding_skills %}
+  </div>
+</div>
+<p>{% endblock%}</p>
