@@ -74,13 +74,14 @@ class Services(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.SET_NULL)
-    bio = models.TextField(max_length=1000, blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    brith_date = models.DateField(null=True, blank=True)
-    phone_number = models.CharField(max_length=11)
-    avatar = models.ImageField(upload_to='avatar', null=True)
+    bio = models.TextField(max_length=1000, blank=True, verbose_name="درباره من")
+    location = models.CharField(max_length=30, blank=True,verbose_name="آدرس")
+    brith_date = models.DateField(null=True, blank=True,verbose_name="تاریخ تولد")
+    phone_number = models.CharField(max_length=11,verbose_name="تلفن همراه")
+    avatar = models.ImageField(upload_to='avatar', null=True,verbose_name="تصویر پروفایل")
     resume_file = models.FileField(upload_to='resumeFile', null=True, validators=[
-                                   validate_file_extension])
+                                   validate_file_extension],verbose_name="فایل رزومه", help_text="پسوند فایل فقط باید شامل نوع pdf و یا  word باشد")
+    job_title = models.CharField(max_length=200, verbose_name="عنوان شغلی",null=True,blank=True)
 
     class Meta:
         verbose_name_plural = "پروفایل"

@@ -23,6 +23,10 @@ class ServiceAdmin(admin.ModelAdmin):
 class Design_skillsAdmin(admin.ModelAdmin):
     list_display = ['title', 'percent']
 
+@admin.register(Coding_skills)
+class Coding_skillsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'percent']
+
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
