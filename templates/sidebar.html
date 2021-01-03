@@ -1,84 +1,73 @@
 {% load static %}
-
+{% load jalali_tags %}
 <div class="sidebar box pb-0 sticky-column">
-  <svg class="avatar avatar--180" viewBox="0 0 188 188">
-    <g class="avatar__box">
-      <image
-        xlink:href="{{user.profile.avatar.url}}"
-        height="100%"
-        width="100%"
-      />
-    </g>
-  </svg>
-  <div class="text-center">
-    <h3 class="title title--h3 sidebar__user-name">
-      <span class="weight--500">{{ user.first_name}}</span> {{ user.last_name}}
-    </h3>
-    <div class="badge badge--gray">مدیر خلاق</div>
+    <svg class="avatar avatar--180" viewBox="0 0 188 188">
+        <g class="avatar__box">
+            <image
+                    xlink:href="{{ user.profile.avatar.url }}"
+                    height="100%"
+                    width="100%"
+            />
+        </g>
+    </svg>
+    <div class="text-center">
+        <h3 class="title title--h3 sidebar__user-name">
+            <span class="weight--500">{{ user.profile.user.first_name }}</span> {{ user.profile.user.last_name }}
+        </h3>
+        <div class="badge badge--gray">مدیر خلاق</div>
 
-    <!-- Social -->
-    <div class="social">
-      <a class="social__link" href="https://www.facebook.com/"
-        ><i class="font-icon icon-facebook"></i
-      ></a>
-      <a class="social__link" href="https://www.behance.com/"
-        ><i class="font-icon icon-twitter"></i
-      ></a>
-      <a class="social__link" href="https://www.linkedin.com/"
-        ><i class="font-icon icon-linkedin2"></i
-      ></a>
+        <!-- Social -->
+        <div class="social">
+            <a class="social__link" href="https://www.facebook.com/"
+            ><i class="font-icon icon-facebook"></i
+            ></a>
+            <a class="social__link" href="https://www.behance.com/"
+            ><i class="font-icon icon-twitter"></i
+            ></a>
+            <a class="social__link" href="https://www.linkedin.com/"
+            ><i class="font-icon icon-linkedin2"></i
+            ></a>
+        </div>
     </div>
-  </div>
 
-  <div class="sidebar__info box-inner box-inner--rounded">
-    <ul class="contacts-block">
-      <li
-        class="contacts-block__item"
-        data-toggle="tooltip"
-        data-placement="top"
-        title="تاریخ تولد"
-      >
-        <i class="font-icon icon-calendar"></i>9 بهمن 1375
-      </li>
-      <li
-        class="contacts-block__item"
-        data-toggle="tooltip"
-        data-placement="top"
-        title="آدرس"
-      >
-        <i class="font-icon icon-location"></i>{{user.profile.location}}
-      </li>
-      <li
-        class="contacts-block__item"
-        data-toggle="tooltip"
-        data-placement="top"
-        title="ایمیل"
-        style="word-wrap: break-word !important"
-      >
-        {{user.email}}
-      </li>
-      <li
-        class="contacts-block__item"
-        data-toggle="tooltip"
-        data-placement="top"
-        title="تلفن"
-      >
-        <i class="font-icon icon-phone"></i>{{user.profile.phone_number}}
-      </li>
-      <li
-        class="contacts-block__item"
-        data-toggle="tooltip"
-        data-placement="top"
-        title="اسکایپ"
-      >
-        <a href="skype:skype-example"
-          ><i class="font-icon icon-skype"></i>Felecia_Brown</a
+    <div class="sidebar__info box-inner box-inner--rounded">
+        <ul class="contacts-block">
+            <li
+                    class="contacts-block__item"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="تاریخ تولد"
+            >
+                <i class="font-icon icon-calendar"></i>{{ user.profile.brith_date|to_jalali }}
+            </li>
+            <li
+                    class="contacts-block__item"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="آدرس"
+            >
+                <i class="font-icon icon-location"></i>{{ user.profile.location }}
+            </li>
+
+
+            <li style="white-space: pre-wrap!important;overflow-wrap: anywhere!important;"
+                class="contacts-block__item" data-toggle="tooltip" data-placement="top" title=""
+                data-original-title="ایمیل">
+                <a href="mailto:{{ user.profile.user.email }}"><i
+                        class="font-icon icon-envelope"></i>{{ user.profile.user.email }}</a>
+            </li>
+            <li
+                    class="contacts-block__item"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="تلفن"
+            >
+                <i class="font-icon icon-phone"></i>{{ user.profile.phone_number }}
+            </li>
+        </ul>
+
+        <a class="btn btn--blue-gradient" href="media/{{ user.profile.resumeFile }}"
+        ><i class="font-icon icon-download"></i> دانلود رزومه</a
         >
-      </li>
-    </ul>
-
-    <a class="btn btn--blue-gradient" href="{{user.profile.resume_file.url}}"
-      ><i class="font-icon icon-download"></i> دانلود رزومه</a
-    >
-  </div>
+    </div>
 </div>
