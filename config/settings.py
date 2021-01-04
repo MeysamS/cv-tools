@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'cv.apps.CvConfig',
     'blog.apps.BlogConfig',
+    'extensions',
 ]
 
 # defaults

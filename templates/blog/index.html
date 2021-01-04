@@ -8,7 +8,7 @@
   {% for article in articles %}
   <article class="news-item box">
     <div class="news-item__image-wrap overlay overlay--45">
-      <div class="news-item__date">{{article.published_at}}</div>
+      <div class="news-item__date">{{article.jpublished_at}}</div>
       <a class="news-item__link" href="{% url 'blog:detail' article.slug %}"></a>
       <img
         class="cover ls-is-cached lazyloaded"
