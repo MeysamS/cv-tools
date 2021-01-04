@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jalali_date',
     'cv.apps.CvConfig',
+    'blog.apps.BlogConfig'
 ]
 
 # defaults

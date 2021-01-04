@@ -92,17 +92,3 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "پروفایل"
         verbose_name_plural = "پروفایل"
-
-
-class Article(models.Model):
-    STATUS_CHOICES = (
-        ('d','Draft'),('p','Published')
-    )
-    title=models.CharField(max_length=200)
-    slug = models.SlugField(max_length=100 )
-    description = models.TextField()
-    thumbnail = models.ImageField(upload_to='blog')
-    published_at = models.DateTimeField(default=timezone.now)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=1,choices=STATUS_CHOICES)
