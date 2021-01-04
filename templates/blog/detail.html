@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        
+<div class="pb-3">
+  <header class="header-post">
+    <div class="header-post__date">{{article.published_at}}</div>
+    <h1 class="title title--h1">{{article.title}}</h1>
+    <div class="header-post__image-wrap">
+      <img
+        class="cover ls-is-cached lazyloaded"
+        src="{{article.thumbnail.url}}" alt="{{article.title}}"
+        alt=""
+      />
+    </div>
+  </header>
+  <div class="caption-post">
+    <p>
+      {{article.description}}
+    </p>
+  </div>
+  </div>
+  <footer class="footer-post">
+    <a class="footer-post__share" href="http://facebook.com/"
+      ><i class="font-icon icon-facebook"></i><span>فیسبوک</span></a
+    >
+    <a class="footer-post__share" href="http://twitter.com/"
+      ><i class="font-icon icon-twitter"></i><span>توییتر</span></a
+    >
+    <a class="footer-post__share" href="http://linkedin.com/"
+      ><i class="font-icon icon-linkedin2"></i><span>لینکدین</span></a
+    >
+  </footer>
+</div>
+
+{% endblock content %}
