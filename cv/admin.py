@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 
-
+admin.site.site_header = "پنل مدیریت سایت(رزومه ساز)"
 @admin.register(Educations)
 class EducationsAdmin(admin.ModelAdmin):
     list_display = ['title', 'description']
