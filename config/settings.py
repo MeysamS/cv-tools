@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'cv.apps.CvConfig',
     'blog.apps.BlogConfig',
     'extensions',
+
+    # Thord-Party apps
+    'ckeditor',
 ]
 
 # defaults
@@ -161,3 +164,11 @@ STATICFILES_DIRS = (
 # media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}

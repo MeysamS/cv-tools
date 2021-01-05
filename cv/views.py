@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 def index(request):
     user = User.objects.select_related('profile').get(id=1)
-    context = {'user': user}
+    context = {'user': user , 'title':user.get_full_name}
     return render(request, 'cv/index.html', context)
 
 

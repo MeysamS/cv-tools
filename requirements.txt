@@ -3,8 +3,10 @@ astroid==2.4.2
 autopep8==1.5.4
 colorama==0.4.4
 Django==3.1.4
+django-ckeditor==6.0.0
 django-currentuser==0.5.2
 django-jalali-date==0.3.1
+django-js-asset==1.2.2
 isort==5.7.0
 jdatetime==3.6.2
 lazy-object-proxy==1.4.3
@@ -12,6 +14,8 @@ mccabe==0.6.1
 Pillow==8.1.0
 pycodestyle==2.6.0
 pylint==2.6.0
+pylint-django==2.3.0
+pylint-plugin-utils==0.6
 pytz==2020.5
 six==1.15.0
 sqlparse==0.4.1

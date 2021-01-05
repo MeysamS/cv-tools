@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from extensions.myjalali import jalali_converter
-
+from ckeditor.fields import RichTextField
+ 
 
 
 class Category(models.Model):
@@ -28,8 +29,9 @@ class Article(models.Model):
     slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس لینک',
                             help_text="این فیل به صورت خودکار زمانی که عنوان را وارد میکنید پر خواهد شد")
     category = models.ManyToManyField(Category, verbose_name="انتخاب دسته بندی مورد نظر",related_name="articles")
-    # category.help_text = 'با نگه داشتن کلید ctrl می توانید انتخاب های بیشتری داشته باشید'
-    description = models.TextField(verbose_name="توضیحات")
+    # category.help_text = 'با نگه داشتن کلید ctrl می توانید انتخاب های بیشتری داشته باشید'    
+    description = RichTextField()
+    # models.TextField(verbose_name="توضیحات")
     thumbnail = models.ImageField(upload_to='blog', verbose_name="تصویر")
     published_at = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
     created_at = models.DateTimeField(auto_now_add=True)

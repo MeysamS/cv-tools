@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from .views import index, detail, category, articles_category
 
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('articles/', index, name='articles'),
     re_path(r'categories/(?P<slug>[-\w]+)/', articles_category, name='articles_category'),
     re_path(r'articles/(?P<slug>[-\w]+)/',  detail, name='detail'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
