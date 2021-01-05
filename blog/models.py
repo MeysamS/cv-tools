@@ -10,6 +10,7 @@ class Category(models.Model):
                             help_text="این فیل به صورت خودکار زمانی که عنوان را وارد میکنید پر خواهد شد")  
     status = models.BooleanField(default=True, verbose_name="آیا نمایش داده شود؟")
     position = models.IntegerField(verbose_name="پوزیشن")
+    image = models.ImageField(upload_to="categories", verbose_name="تصویر برای دسته بندی",null=True,blank=True)
 
     class Meta:
         verbose_name = "دسته بندی"
@@ -26,7 +27,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name="عنوان")
     slug = models.SlugField(max_length=100, unique=True, allow_unicode=True, verbose_name='آدرس لینک',
                             help_text="این فیل به صورت خودکار زمانی که عنوان را وارد میکنید پر خواهد شد")
-    category = models.ManyToManyField(Category, verbose_name="انتخاب دسته بندی مورد نظر")
+    category = models.ManyToManyField(Category, verbose_name="انتخاب دسته بندی مورد نظر",related_name="articles")
     # category.help_text = 'با نگه داشتن کلید ctrl می توانید انتخاب های بیشتری داشته باشید'
     description = models.TextField(verbose_name="توضیحات")
     thumbnail = models.ImageField(upload_to='blog', verbose_name="تصویر")
