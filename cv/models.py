@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from extensions.customFieldTypes import IntegerRangeField
 from extensions.validator_files import validate_file_extension
 from django.utils import timezone
+from extensions.myjalali import jalali_converter
 
 
 class Educations(models.Model):
@@ -96,3 +97,20 @@ class Profile(models.Model):
     class Meta:
         verbose_name = "پروفایل"
         verbose_name_plural = "پروفایل"
+
+class ContactUs(models.Model):
+    full_name = models.CharField(max_length=100 , verbose_name="نام و نام خانوادگی")
+    email = models.EmailField(verbose_name="آدرس ایمیل")
+    message = models.TextField(verbose_name="متن پیام")
+    created_at = models.DateTimeField(auto_now_add= True)
+    visited = models.BooleanField(default=False, verbose_name="وضعیت", help_text="وضعیت خوانده شده | خوانده نشده")
+    class Meta:
+        verbose_name = "تماس با ما"
+        verbose_name_plural = "تماس با ما"
+
+    def __str__(self):
+        return self.full_name
+    
+    def jcreated_at(self):
+        return jalali_converter(self.created_at)
+    jcreated_at.short_description = "تاریخ"

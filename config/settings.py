@@ -36,39 +36,39 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'jalali_date',
     'cv.apps.CvConfig',
     'blog.apps.BlogConfig',
     'extensions',
 
     # Thord-Party apps
     'ckeditor',
+    'ckeditor_uploader'
 ]
 
 # defaults
-JALALI_DATE_DEFAULTS = {
-    'Strftime': {
-        'date': '%y/%m/%d',
-        'datetime': '%H:%M:%S _ %y/%m/%d',
-    },
-    'Static': {
-        'js': [
-            # loading datepicker
-            'admin/js/django_jalali.min.js',
-            # OR
-            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
-            # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
-            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
-            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
-            # 'admin/js/main.js',
-        ],
-        'css': {
-            'all': [
-                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
-            ]
-        }
-    },
-}
+# JALALI_DATE_DEFAULTS = {
+#     'Strftime': {
+#         'date': '%y/%m/%d',
+#         'datetime': '%H:%M:%S _ %y/%m/%d',
+#     },
+#     'Static': {
+#         'js': [
+#             # loading datepicker
+#             'admin/js/django_jalali.min.js',
+#             # OR
+#             # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
+#             # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
+#             # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
+#             # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
+#             # 'admin/js/main.js',
+#         ],
+#         'css': {
+#             'all': [
+#                 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+#             ]
+#         }
+#     },
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -146,14 +146,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     str(BASE_DIR) + 'static',
-# )
-# STATIC_ROOT = str(BASE_DIR) + 'staticfiles'
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = str(BASE_DIR) + '/media/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
@@ -166,7 +158,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CKEDITOR
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',

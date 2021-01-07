@@ -1,7 +1,5 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-        
+{% extends 'base.html' %} {% load static %} {% block content %}
+
 <div class="pb-3">
   <header class="header-post">
     <div class="header-post__date">{{article.published_at}}</div>
@@ -9,17 +7,16 @@
     <div class="header-post__image-wrap">
       <img
         class="cover ls-is-cached lazyloaded"
-        src="{{article.thumbnail.url}}" alt="{{article.title}}"
+        src="{{article.thumbnail.url}}"
+        alt="{{article.title}}"
         alt=""
       />
     </div>
   </header>
   <div class="caption-post">
-    <p>
-      {{ article.description | safe }}
-    </p>
+    <p>{{ article.description | safe }}</p>
   </div>
-  </div>
+
   <footer class="footer-post">
     <a class="footer-post__share" href="http://facebook.com/"
       ><i class="font-icon icon-facebook"></i><span>فیسبوک</span></a

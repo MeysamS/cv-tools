@@ -23,6 +23,3 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = (['status'])
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}
-
-    # class Meta:
-    #     help_texts = {"category": None}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% block content %}
+<div class="pb-2">
+  <h1 class="title title--h1 title__separate">تماس با من</h1>
+</div>
+<h2 class="title title--h3">فرم تماس با من</h2>
+{% if messages %}
+<ul class="messages">
+   {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif%}
+<form
+  action="{% url 'home:send' %}"
+  method="POST"
+  class="contact-form"
+  data-toggle="validator"
+  novalidate="true"
+>
+  {% csrf_token %}
+  <div class="row">
+    <div class="form-group col-12 col-md-6">
+      <i class="font-icon icon-user"></i>
+      <input
+        type="text"
+        class="input input__icon form-control"
+        id="full_name"
+        name="full_name"
+        placeholder="نام و نام خانوادگی"
+        required="required"
+        autocomplete="on"
+        oninvalid="setCustomValidity('لطفا نام و نام خانوادگی خود را وارد کنید.')"
+        onkeyup="setCustomValidity('')"
+      />
+      <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-12 col-md-6">
+      <i class="font-icon icon-envelope"></i>
+      <input
+        type="email"
+        class="input input__icon form-control"
+        id="email"
+        name="email"
+        placeholder="آدرس ایمیل"
+        required="required"
+        autocomplete="on"
+        oninvalid="setCustomValidity('ایمیل نادرست است.')"
+        onkeyup="setCustomValidity('')"
+      />
+      <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-12 col-md-12">
+      <textarea
+        class="textarea form-control"
+        id="message"
+        name="message"
+        placeholder="پیام ..."
+        rows="4"
+        required="required"
+        oninvalid="setCustomValidity('لطفا پیام خود را وارد کنید.')"
+        onkeyup="setCustomValidity('')"
+        tabindex="1"
+        style="
+          overflow: hidden;
+          overflow-wrap: break-word;
+          height: 116px;
+          outline: none;
+        "
+      ></textarea>
+      <div class="help-block with-errors"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-left">
+      <div id="validator-contact" class="hidden"></div>
+    </div>
+    <div class="col-12 col-md-6 order-1 order-md-2 text-left">
+      <button type="submit" class="btn disabled">
+        <i class="font-icon icon-send"></i> ارسال پیام
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock content %}

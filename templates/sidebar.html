@@ -1,5 +1,4 @@
 {% load static %}
-{% load jalali_tags %}
 <div class="sidebar box pb-0 sticky-column">
     <svg class="avatar avatar--180" viewBox="0 0 188 188">
         <g class="avatar__box">
@@ -39,7 +38,7 @@
                     data-placement="top"
                     title="تاریخ تولد"
             >
-                <i class="font-icon icon-calendar"></i>{{ user.profile.brith_date|to_jalali }}
+                <i class="font-icon icon-calendar"></i>{{ user.profile.brith_date }}
             </li>
             <li
                     class="contacts-block__item"
