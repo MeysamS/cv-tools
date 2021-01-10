@@ -1,5 +1,6 @@
 from django.contrib import admin
 from blog.models import Article, Category
+from django.contrib import messages
 
 
 @admin.register(Article)
@@ -10,6 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}
     ordering = ['status', '-published_at']
+    date_hierarchy = 'published_at'
 
     def category_to_str(self, object):
         return ", ".join([category.title for category in object.category.all()])

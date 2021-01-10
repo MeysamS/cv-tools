@@ -6,7 +6,7 @@
 <div class="news-grid pb-0">
   <!-- Post -->
   {% for article in articles %}
-  <article class="news-item box">
+  <article class="news-item box" style="width:100%">
     <div class="news-item__image-wrap overlay overlay--45">
       <div class="news-item__date">{{article.jpublished_at}}</div>
       <a class="news-item__link" href="{% url 'blog:detail' article.slug %}"></a>
@@ -22,7 +22,7 @@
        href="{% url 'blog:detail' article.slug %}"
         ><h2 class="title title--h4">{{article.title}}</h2></a
       >
-      <p>{{article.description|truncatewords:70}}</p>
+      <p>{{article.description|truncatewords:70 | safe}}</p>
     </div>
   </article>
   {% endfor %}
