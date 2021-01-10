@@ -15,13 +15,14 @@ def index(request):
 
 def resume(request):
     user = User.objects.get(id=1)
-    educations = Educations.objects.filter(user=1)
-    experiences = Experiences.objects.filter(user=1)
-
-    design_skills = Design_skills.objects.filter(user=1)
-    coding_skills = Coding_skills.objects.filter(user=1)
-    context = {'user': user, 'educations': educations,
-               'experiences': experiences, 'design_skills': design_skills, 'coding_skills': coding_skills}
+    # educations = Educations.objects.filter(user=1)
+    # experiences = Experiences.objects.filter(user=1)
+    #
+    # design_skills = Design_skills.objects.filter(user=1)
+    # coding_skills = Coding_skills.objects.filter(user=1)
+    # context = {'user': user, 'educations': educations,
+    #            'experiences': experiences, 'design_skills': design_skills, 'coding_skills': coding_skills}
+    context = {'user': user}
     return render(request, 'cv/resume.html', context)
 
 

@@ -5,14 +5,14 @@
 
     <div class="pb-0">
         <div class="row">
-            {% include 'cv/educations.html' with educations=educations %} {% include 'cv/experience.html' with experiences=experiences %}
+            {% include 'cv/educations.html' with educations=user.educations_set.all %} {% include 'cv/experience.html' with experiences=user.experiences_set.all %}
         </div>
     </div>
 
     <div class="box-inner box-inner--rounded">
         <div class="row">
-            {% include 'cv/design_skills.html' with design_skills=design_skills %}
-            {% include 'cv/coding_skills.html' with coding_skills=coding_skills %}
+            {% include 'cv/design_skills.html' with design_skills=user.design_skills_set.all %}
+            {% include 'cv/coding_skills.html' with coding_skills=user.coding_skills_set.all %}
         </div>
     </div>
     <p>{% endblock %}</p>
